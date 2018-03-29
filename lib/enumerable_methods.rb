@@ -1,4 +1,4 @@
-module Enumerable
+class Array
 
 	def my_each
 		i=0
@@ -61,6 +61,7 @@ module Enumerable
 	end
 
 	def my_map(proc=false)
+		return self.to_enum('my_map') unless block_given? 
 		i = 0
 		return_array = []
 		while i < self.length
